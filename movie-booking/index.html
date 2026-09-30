@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineBook | Movie Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">🎬 Cine<span>Book</span></div>
+
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="hero-small">WELCOME TO CINEBOOK</p>
+
+            <h1>Your Movie.<br>
+                Your <span>Seat.</span><br>
+                Your Experience.</h1>
+
+            <p>
+                Discover the latest movies, choose your favourite showtime,
+                select your seat and book your tickets easily.
+            </p>
+
+            <a href="#movies" class="hero-btn">Explore Movies 🎬</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- MOVIES -->
+    <section class="movies-section" id="movies">
+
+        <div class="section-heading">
+            <p>NOW SHOWING</p>
+            <h2>Choose Your Movie</h2>
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔎 Search movies..."
+                onkeyup="searchMovies()"
+            >
+        </div>
+
+
+        <!-- GENRES -->
+        <div class="genres">
+
+            <button class="genre-btn active" onclick="filterMovies('all', this)">
+                All
+            </button>
+
+            <button class="genre-btn" onclick="filterMovies('action', this)">
+                Action
+            </button>
+
+            <button class="genre-btn" onclick="filterMovies('comedy', this)">
+                Comedy
+            </button>
+
+            <button class="genre-btn" onclick="filterMovies('drama', this)">
+                Drama
+            </button>
+
+            <button class="genre-btn" onclick="filterMovies('animation', this)">
+                Animation
+            </button>
+
+        </div>
+
+
+        <!-- MOVIE GRID -->
+        <div class="movie-grid" id="movieGrid">
+
+            <!-- MOVIE 1 -->
+            <div class="movie-card" data-genre="action" data-title="Shadow Warriors">
+
+                <div class="poster poster-one">
+                    <span>⚔️</span>
+                    <h3>SHADOW<br>WARRIORS</h3>
+                    <small>ACTION</small>
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Shadow Warriors</h3>
+
+                    <p>⭐ 8.7/10 &nbsp; • &nbsp; Action</p>
+
+                    <button onclick="openMovie('Shadow Warriors', 'action')">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOVIE 2 -->
+            <div class="movie-card" data-genre="comedy" data-title="Crazy Weekend">
+
+                <div class="poster poster-two">
+                    <span>😂</span>
+                    <h3>CRAZY<br>WEEKEND</h3>
+                    <small>COMEDY</small>
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Crazy Weekend</h3>
+
+                    <p>⭐ 8.1/10 &nbsp; • &nbsp; Comedy</p>
+
+                    <button onclick="openMovie('Crazy Weekend', 'comedy')">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOVIE 3 -->
+            <div class="movie-card" data-genre="drama" data-title="The Last Letter">
+
+                <div class="poster poster-three">
+                    <span>💌</span>
+                    <h3>THE LAST<br>LETTER</h3>
+                    <small>DRAMA</small>
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>The Last Letter</h3>
+
+                    <p>⭐ 9.0/10 &nbsp; • &nbsp; Drama</p>
+
+                    <button onclick="openMovie('The Last Letter', 'drama')">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOVIE 4 -->
+            <div class="movie-card" data-genre="animation" data-title="Magic Forest">
+
+                <div class="poster poster-four">
+                    <span>🌳</span>
+                    <h3>MAGIC<br>FOREST</h3>
+                    <small>ANIMATION</small>
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Magic Forest</h3>
+
+                    <p>⭐ 8.8/10 &nbsp; • &nbsp; Animation</p>
+
+                    <button onclick="openMovie('Magic Forest', 'animation')">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOVIE 5 -->
+            <div class="movie-card" data-genre="action" data-title="Final Mission">
+
+                <div class="poster poster-five">
+                    <span>🚀</span>
+                    <h3>FINAL<br>MISSION</h3>
+                    <small>ACTION</small>
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Final Mission</h3>
+
+                    <p>⭐ 8.5/10 &nbsp; • &nbsp; Action</p>
+
+                    <button onclick="openMovie('Final Mission', 'action')">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOVIE 6 -->
+            <div class="movie-card" data-genre="comedy" data-title="Lucky Day">
+
+                <div class="poster poster-six">
+                    <span>🍀</span>
+                    <h3>LUCKY<br>DAY</h3>
+                    <small>COMEDY</small>
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Lucky Day</h3>
+
+                    <p>⭐ 8.3/10 &nbsp; • &nbsp; Comedy</p>
+
+                    <button onclick="openMovie('Lucky Day', 'comedy')">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div>
+            <p class="section-label">ABOUT CINEBOOK</p>
+
+            <h2>Movie nights made simple.</h2>
+
+            <p>
+                CineBook makes it easy to discover movies and book your
+                favourite seats. Choose a movie, select a showtime,
+                pick your seats and enjoy the show.
+            </p>
+        </div>
+
+        <div class="about-features">
+
+            <div>
+                <span>🎬</span>
+                <h3>Latest Movies</h3>
+                <p>Explore movies currently showing.</p>
+            </div>
+
+            <div>
+                <span>💺</span>
+                <h3>Easy Booking</h3>
+                <p>Select your preferred seats.</p>
+            </div>
+
+            <div>
+                <span>🎟️</span>
+                <h3>Instant Confirmation</h3>
+                <p>Get your booking confirmation instantly.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">🎬 CineBook</div>
+
+        <p>
+            Your favourite movies, just a booking away.
+        </p>
+
+        <p class="copyright">
+            © 2026 CineBook. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- MOVIE MODAL -->
+    <div class="modal" id="movieModal">
+
+        <div class="modal-content">
+
+            <button class="close-btn" onclick="closeModal()">×</button>
+
+            <h2 id="selectedMovie">Movie Name</h2>
+
+            <p class="modal-subtitle">
+                Select your showtime
+            </p>
+
+
+            <!-- SHOWTIMES -->
+            <div class="showtimes">
+
+                <button onclick="selectTime(this)">10:30 AM</button>
+
+                <button onclick="selectTime(this)">1:30 PM</button>
+
+                <button onclick="selectTime(this)">4:30 PM</button>
+
+                <button onclick="selectTime(this)">7:30 PM</button>
+
+                <button onclick="selectTime(this)">10:30 PM</button>
+
+            </div>
+
+
+            <!-- SEATS -->
+            <h3 class="seat-title">Select Your Seats</h3>
+
+            <div class="screen">
+                SCREEN
+            </div>
+
+            <div class="seats" id="seats">
+
+                <button onclick="selectSeat(this)">A1</button>
+                <button onclick="selectSeat(this)">A2</button>
+                <button onclick="selectSeat(this)">A3</button>
+                <button onclick="selectSeat(this)">A4</button>
+                <button onclick="selectSeat(this)">A5</button>
+                <button onclick="selectSeat(this)">A6</button>
+
+                <button onclick="selectSeat(this)">B1</button>
+                <button onclick="selectSeat(this)">B2</button>
+                <button onclick="selectSeat(this)">B3</button>
+                <button onclick="selectSeat(this)">B4</button>
+                <button onclick="selectSeat(this)">B5</button>
+                <button onclick="selectSeat(this)">B6</button>
+
+                <button onclick="selectSeat(this)">C1</button>
+                <button onclick="selectSeat(this)">C2</button>
+                <button onclick="selectSeat(this)">C3</button>
+                <button onclick="selectSeat(this)">C4</button>
+                <button onclick="selectSeat(this)">C5</button>
+                <button onclick="selectSeat(this)">C6</button>
+
+                <button onclick="selectSeat(this)">D1</button>
+                <button onclick="selectSeat(this)">D2</button>
+                <button onclick="selectSeat(this)">D3</button>
+                <button onclick="selectSeat(this)">D4</button>
+                <button onclick="selectSeat(this)">D5</button>
+                <button onclick="selectSeat(this)">D6</button>
+
+            </div>
+
+
+            <div class="booking-summary">
+
+                <p>
+                    Seats:
+                    <strong id="seatCount">0</strong>
+                </p>
+
+                <p>
+                    Price:
+                    <strong>€<span id="totalPrice">0</span></strong>
+                </p>
+
+            </div>
+
+
+            <button class="confirm-btn" onclick="confirmBooking()">
+                Confirm Booking 🎟️
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONFIRMATION -->
+    <div class="confirmation" id="confirmation">
+
+        <div class="confirmation-box">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Booking Confirmed!</h2>
+
+            <p id="confirmationText"></p>
+
+            <button onclick="closeConfirmation()">
+                Done
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

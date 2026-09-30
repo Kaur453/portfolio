@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Harshdeep Kaur | Web Designer & Developer</title>
+
+    <meta
+        name="description"
+        content="Portfolio of Harshdeep Kaur, a junior web designer and developer specializing in HTML, CSS, JavaScript, PHP."
+    >
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            transition: 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        body.dark .navbar,
+        body.dark .about-card,
+        body.dark .skill-card,
+        body.dark .project-card,
+        body.dark .contact-card,
+        body.dark .learning-card {
+            background: #1e293b;
+            color: #e2e8f0;
+        }
+
+        body.dark .nav-links a {
+            color: #e2e8f0;
+        }
+
+        body.dark .section-subtitle,
+        body.dark .about-text,
+        body.dark .project-description,
+        body.dark .contact-text {
+            color: #cbd5e1;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 15px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+
+            background: linear-gradient(
+                135deg,
+                #6366f1,
+                #8b5cf6
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        .theme-btn {
+            border: none;
+            background: #6366f1;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: #6366f1;
+            color: white;
+            font-size: 22px;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #6366f1;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(99,102,241,0.15),
+                    transparent 35%
+                );
+        }
+
+        .hero-container {
+            max-width: 1150px;
+            width: 100%;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: slideLeft 1s ease;
+        }
+
+        .hero-small {
+            color: #6366f1;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #6366f1;
+        }
+
+        .hero-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: #6366f1;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99,102,241,0.3);
+        }
+
+        .secondary-btn {
+            border: 2px solid #6366f1;
+            color: #6366f1;
+        }
+
+        .secondary-btn:hover {
+            background: #6366f1;
+            color: white;
+        }
+
+
+        /* =========================
+           HERO CARD
+        ========================= */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            animation: slideRight 1s ease;
+        }
+
+        .profile-card {
+            width: 300px;
+            height: 330px;
+            border-radius: 30px;
+
+            background: linear-gradient(
+                135deg,
+                #6366f1,
+                #8b5cf6
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            box-shadow:
+                0 25px 50px rgba(99,102,241,0.3);
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .profile-circle {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 55px;
+            font-weight: bold;
+            color: #6366f1;
+
+            border: 6px solid rgba(255,255,255,0.8);
+
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .floating-tag {
+            position: absolute;
+            background: white;
+            color: #334155;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .tag-one {
+            left: -30px;
+            top: 50px;
+        }
+
+        .tag-two {
+            right: -30px;
+            bottom: 55px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+        }
+
+        .about-text {
+            color: #64748b;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .about-highlights {
+            margin-top: 25px;
+
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .highlight {
+            padding: 20px;
+            border-radius: 15px;
+            background: #f1f5f9;
+            text-align: center;
+        }
+
+        body.dark .highlight {
+            background: #334155;
+        }
+
+        .highlight strong {
+            display: block;
+            font-size: 25px;
+            color: #6366f1;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+            transition: 0.3s;
+
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .skill-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #64748b;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+
+            box-shadow: 0 10px 35px rgba(0,0,0,0.07);
+
+            transition: 0.3s;
+
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .project-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+            background: #eef2ff;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-placeholder {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 75px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef2ff,
+                    #ddd6fe
+                );
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tags span {
+            background: #eef2ff;
+            color: #6366f1;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           LEARNING
+        ========================= */
+
+        .learning-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+
+        .learning-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .learning-item {
+            background: #eef2ff;
+            color: #6366f1;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+        }
+
+        .contact-text {
+            color: #64748b;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes slideLeft {
+
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes floating {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width: 768px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+
+                background: white;
+
+                display: none;
+                flex-direction: column;
+
+                padding: 25px;
+                gap: 20px;
+
+                box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            }
+
+            body.dark .nav-links {
+                background: #1e293b;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .profile-card {
+                width: 250px;
+                height: 280px;
+            }
+
+            .profile-circle {
+                width: 140px;
+                height: 140px;
+                font-size: 42px;
+            }
+
+            .tag-one {
+                left: -10px;
+            }
+
+            .tag-two {
+                right: -10px;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .contact-card {
+                padding: 30px 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            Harshdeep Kaur
+        </a>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+            <li>
+                <button class="theme-btn" id="themeBtn">
+                    🌙
+                </button>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+        <div class="hero-text">
+
+            <div class="hero-small">
+                👋 Hello, I'm
+            </div>
+
+            <h1>
+                Harshdeep <span>Kaur</span>
+            </h1>
+
+            <div class="hero-title">
+                Junior Web Designer & Developer
+            </div>
+
+            <p class="hero-description">
+                I create clean, responsive and user-friendly websites using HTML, CSS, JavaScript and PHP. I am continuously improving my web development skills through practical projects.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn primary-btn">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="btn secondary-btn">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="profile-card">
+
+                <div class="profile-circle">
+                    HK
+                </div>
+
+                <div class="floating-tag tag-one">
+                    🌐 Web Design
+                </div>
+
+                <div class="floating-tag tag-two">
+                ⚡ JavaScript
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <p class="section-subtitle">
+            A little about my background and goals
+        </p>
+
+
+        <div class="about-card">
+
+            <p class="about-text">
+                I have a Master in Computer Applications (MCA) and
+                completed six months of training in PHP.
+            </p>
+
+            <p class="about-text">
+                I am currently focused on building my career in
+                web design and web development.
+                I enjoy creating practical websites and improving
+                my design and development skills through projects.
+            </p>
+
+            <p class="about-text">
+                I am currently based in Portugal and looking for
+                opportunities where I can continue learning,
+                contribute to projects and grow professionally.
+            </p>
+
+
+            <div class="about-highlights">
+
+                <div class="highlight">
+                    <strong>MCA</strong>
+                    Education
+                </div>
+
+                <div class="highlight">
+                    <strong>6+</strong>
+                    Months PHP Training
+                </div>
+
+                <div class="highlight">
+                    <strong>4+</strong>
+                    Practice Projects
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Technologies and areas I am learning and working with
+        </p>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🌐
+                </div>
+
+                <h3>HTML</h3>
+
+                <p>
+                    Creating structured and semantic web pages.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🎨
+                </div>
+
+                <h3>CSS</h3>
+
+                <p>
+                    Responsive layouts, styling and animations.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    ⚡
+                </div>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Adding interaction and functionality to websites.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🐘
+                </div>
+
+                <h3>PHP</h3>
+
+                <p>
+                    Backend development fundamentals.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🎯
+                </div>
+
+                <h3>SQL</h3>
+
+                <p>
+                    Database management and querying.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    📱
+                </div>
+
+                <h3>Responsive Design</h3>
+
+                <p>
+                    Websites that work across desktop and mobile.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Projects I have built while learning web development and design
+        </p>
+
+
+        <div class="projects-grid">
+
+
+            <!-- FOODIE -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="images/foodie.png"
+                        alt="Foodie Food Ordering Website"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="project-placeholder">
+                        🍔
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        Foodie - Food Ordering Website
+                    </h3>
+
+                    <p class="project-description">
+                        A responsive food ordering website built with HTML, CSS, and JavaScript, featuring a dynamic menu, shopping cart, 
+                        quantity controls, localStorage cart management, price calculation, and checkout functionality..
+                    </p>
+
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <a
+                        href="https://kaur453.github.io/Foodie-Website/index.html"
+                        target="_blank"
+                        class="btn primary-btn"
+                    >
+                        View Live Website
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SHOPPING -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="images/shopping.png"
+                        alt="ShopEase - Mini E-commerce Store"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="project-placeholder">
+                        🛍️
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        ShopEase - Mini E-commerce Store
+                    </h3>
+
+                    <p class="project-description">
+                        ShopEase — Mini E-commerce Store
+                        A responsive e-commerce website built with HTML, CSS and JavaScript featuring product search, category filtering, shopping cart management, quantity controls, automatic price calculation, localStorage and checkout confirmation.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>LocalStorage</span>
+                    </div>
+                        <a
+                        href="ShopEase/index.html"
+                        target="_blank"
+                        class="btn primary-btn"
+                    >
+                        View Project
+                    </a>
+                </div>
+
+            </div>
+
+
+
+            <!-- BEAUTY SALON -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="images/Beauty.png"
+                        alt="Beauty salon Practice Project"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="project-placeholder">
+                        💇
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        Beauty Salon Website
+                    </h3>
+
+                    <p class="project-description">
+                        A responsive beauty salon website built with HTML, CSS and JavaScript. 
+                        <br> The project includes service sections, pricing, responsive navigation, appointment booking, form validation, interactive animations and a mobile-friendly layout.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive Design</span>
+                    </div>
+                        <a href="beauty-salon/index.html" target="_blank" class="btn primary-btn">
+                        View Project
+                        </a>
+                </div>
+                    
+            </div>
+
+
+
+            <!-- MOVIE BOOKING -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="images/movie.png"
+                        alt="Movie Booking Website"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="project-placeholder">
+                        🎬
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        Movie Booking Website
+                    </h3>
+
+                    <p class="project-description">
+                        Movie Booking Website — An interactive responsive cinema website featuring movie search, 
+                        genre filtering, showtime selection, interactive seat booking, price calculation, and booking confirmation.
+                        Features:
+                            🎬 Movie details popup
+                            🕐 Showtime selection
+                            💾 LocalStorage for booking data
+                            📱 Responsive design for mobile and desktop
+                    </p>
+
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                        <a href="movie-booking/index.html" target="_blank" class="btn primary-btn">
+                        View Project
+                    </a>
+                </div>
+                    
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     LEARNING
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Currently <span>Learning</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Skills I am currently improving
+        </p>
+
+
+        <div class="learning-card">
+
+            <p>
+                I am continuously improving my web development,
+                 design skills through practical projects.
+            </p>
+
+
+            <div class="learning-list">
+
+                <div class="learning-item">
+                    Advanced CSS
+                </div>
+
+                <div class="learning-item">
+                    JavaScript
+                </div>
+
+                <div class="learning-item">
+                    SQL
+                </div>
+
+                <div class="learning-item">
+                    PHP
+                </div>
+
+                <div class="learning-item">
+                    Responsive Design
+                </div>
+
+                <div class="learning-item">
+                    GitHub
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Let's <span>Connect</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Interested in working together? Feel free to contact me.
+        </p>
+
+
+        <div class="contact-card">
+
+            <p class="contact-text">
+                I am interested in junior web design, web development and remote opportunities where I can learn, contribute and grow.
+            </p>
+
+
+            <div class="contact-buttons">
+
+
+                <a
+                    href="mailto:harshdeep1302@gmail.com"
+                    class="btn primary-btn"
+                >
+                    📧 Email Me
+                </a>
+
+
+                <a
+                    href="https://github.com/Kaur453"
+                    target="_blank"
+                    class="btn secondary-btn"
+                >
+                    🐙 GitHub
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/harshdeep-kaur-6a290226a"
+                    target="_blank"
+                    class="btn secondary-btn"
+                >
+                    💼 LinkedIn
+                </a>
+
+
+                <a
+                    href="Harshdeep-Kaur-CV.pdf"
+                    download
+                    class="btn secondary-btn"
+                >
+                    📄 Download CV
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Harshdeep Kaur. All Rights Reserved.
+    </p>
+
+    <p>
+        Designed & Developed by Harshdeep Kaur
+    </p>
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function() {
+
+        navLinks.classList.toggle("active");
+
+    });
+
+
+    /* Close menu after clicking link */
+
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            navLinks.classList.remove("active");
+
+        });
+
+    });
+
+
+
+    /* =========================
+       DARK MODE
+    ========================= */
+
+    const themeBtn = document.getElementById("themeBtn");
+
+
+    themeBtn.addEventListener("click", function() {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+
+            themeBtn.textContent = "☀️";
+
+            localStorage.setItem("theme", "dark");
+
+        } else {
+
+            themeBtn.textContent = "🌙";
+
+            localStorage.setItem("theme", "light");
+
+        }
+
+    });
+
+
+    /* Remember theme */
+
+    if (localStorage.getItem("theme") === "dark") {
+
+        document.body.classList.add("dark");
+
+        themeBtn.textContent = "☀️";
+
+    }
+
+
+
+    /* =========================
+       SCROLL ANIMATION
+    ========================= */
+
+    const animatedElements =
+        document.querySelectorAll(
+            ".project-card, .skill-card"
+        );
+
+
+    const observer = new IntersectionObserver(
+
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+    animatedElements.forEach(function(element, index) {
+
+        element.style.transitionDelay =
+            `${index * 0.12}s`;
+
+        observer.observe(element);
+
+    });
+
+
+</script>
+
+
+</body>
+</html>
